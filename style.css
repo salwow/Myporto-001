@@ -167,3 +167,59 @@ h2 {
 
 .proyek-card img {
     width: 100%;
+/* --- MEDIA SOSIAL (Coquette Bubble Style) --- */
+.medsos {
+    background-color: #fff9ae; /* Latar kuning pastel lembut */
+    border-radius: 50px 50px 0 0; /* Memberikan efek lengkung di atas section */
+}
+
+.medsos-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* Jarak antar ikon lebih lega */
+    flex-wrap: wrap;
+    padding: 20px 0;
+}
+
+.medsos-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #5a4a42;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Lingkaran pembungkus ikon */
+.medsos-item img {
+    width: 65px; /* Ukuran seragam */
+    height: 65px;
+    background: white;
+    padding: 12px;
+    border-radius: 50%; /* Membuat ikon bulat */
+    border: 3px solid #ff85a1; /* Bingkai pink */
+    box-shadow: 0 8px 15px rgba(255, 133, 161, 0.2);
+    margin-bottom: 12px;
+    object-fit: contain;
+    transition: 0.3s;
+}
+
+/* Efek saat kursor mendekat (Hover) */
+.medsos-item:hover {
+    color: #ff85a1;
+    transform: translateY(-10px); /* Melompat pelan */
+}
+
+.medsos-item:hover img {
+    background-color: #ffdae9; /* Berubah jadi pink muda saat hover */
+    transform: scale(1.1) rotate(8deg); /* Membesar dan sedikit miring lucu */
+    border-color: #ffb703; /* Border berubah jadi kuning emas */
+}
+
+.medsos-item span {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
