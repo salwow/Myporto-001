@@ -1,225 +1,160 @@
-/* --- RESET & DASAR --- */
+/* 1. Setup Dasar & Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Quicksand:wght@500;700&display=swap');
+
 * {
-    margin: 0; /* Menghapus jarak bawaan browser */
-    padding: 0; /* Menghapus ruang dalam bawaan browser */
-    box-sizing: border-box; /* Ukuran elemen dihitung termasuk padding & border */
-    font-family: 'Poppins', sans-serif; /* Menggunakan font modern */
-    scroll-behavior: smooth; /* Efek scroll halus saat klik menu navigasi */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: #121212; /* Warna latar belakang hitam pekat (Dark Mode) */
-    color: #ffffff; /* Warna teks utama putih agar kontras */
-    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFFBFA;
+    color: #FF85A1;
+    overflow-x: hidden;
 }
 
-/* --- NAVIGASI --- */
-header {
-    background-color: #000000; /* Latar navigasi hitam murni */
-    padding: 20px 0;
-    position: fixed; /* Navigasi tetap di atas saat scroll */
-    width: 100%;
+/* 2. Navigasi - Elegan & Clean */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background: rgba(255, 209, 220, 0.5);
+    backdrop-filter: blur(10px);
+    position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 2px solid #ff4d6d; /* Garis bawah tipis warna merah muda */
+    border-bottom: 2px dashed #FF85A1;
 }
 
-nav {
-    display: flex; /* Menyusun logo dan menu secara menyamping */
-    justify-content: space-between; /* Logo di kiri, menu di kanan */
-    align-items: center;
-    max-width: 1100px;
-    margin: 0 auto; /* Menengahkan container navigasi */
-    padding: 0 20px;
-}
-
-.logo {
-    font-size: 24px;
+nav .logo {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.5rem;
     font-weight: bold;
-    color: #ffffff;
-}
-
-.logo span {
-    color: #ff4d6d; /* Warna merah muda untuk bagian 'Porto' */
 }
 
 nav ul {
     display: flex;
-    list-style: none; /* Menghilangkan titik pada list */
-}
-
-nav ul li {
-    margin-left: 25px;
+    list-style: none;
+    gap: 20px;
 }
 
 nav ul li a {
-    text-decoration: none; /* Menghilangkan garis bawah link */
-    color: #ffffff;
+    text-decoration: none;
+    color: #FF85A1;
     font-weight: 500;
-    transition: 0.3s; /* Transisi halus saat di-hover */
+    transition: 0.3s;
 }
 
 nav ul li a:hover {
-    color: #ff4d6d; /* Berubah merah muda saat kursor mendekat */
+    color: #fdd835; /* Kuning */
 }
 
-/* --- HERO SECTION --- */
+/* 3. Hero Section - Vibes Coquette */
 .hero {
-    height: 100vh; /* Tinggi penuh satu layar */
+    height: 80vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 10%;
-    background: radial-gradient(circle at top right, #2c0005, #121212); /* Gradasi hitam ke arah kemerahan */
-}
-
-.hero-content h1 {
-    font-size: 4rem;
-    color: #ff4d6d; /* Nama Salwa menonjol dengan warna pink */
-    margin: 10px 0;
-}
-
-.hero-content p {
-    font-size: 1.1rem;
-    color: #cccccc;
-    max-width: 500px;
-}
-
-.hero-logo img {
-    width: 300px; /* Ukuran foto profil */
-    border-radius: 30px; /* Sudut foto melengkung */
-    border: 5px solid #ff4d6d; /* Bingkai pink */
-    box-shadow: 0 0 20px rgba(255, 77, 109, 0.4); /* Efek cahaya neon pink */
-}
-
-.btn-hero {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 12px 30px;
-    background-color: #ff4d6d; /* Tombol warna pink */
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.btn-hero:hover {
-    background-color: #ffffff;
-    color: #ff4d6d; /* Warna terbalik saat di-hover */
-}
-
-/* --- SECTION GENERAL --- */
-section {
-    padding: 100px 10%; /* Ruang antar bagian website */
-}
-
-h2 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    color: #ffffff;
+    background: linear-gradient(180deg, #FFD1DC 0%, #FFFBFA 100%);
+    position: relative;
 }
 
-/* --- PROYEK GRID (KARTU SEJAJAR) --- */
-.proyek-grid {
-    display: grid; /* Menggunakan CSS Grid untuk kerapian maksimal */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Membuat kartu otomatis sejajar & responsif */
-    gap: 30px; /* Jarak antar kartu */
-}
-
-.proyek-card {
-    background: #1e1e1e; /* Warna kartu hitam abu-abu */
-    text-decoration: none;
-    border-radius: 15px;
-    overflow: hidden; /* Memastikan gambar tidak keluar dari sudut lengkung */
-    border: 1px solid #333;
-    transition: 0.4s;
-}
-
-.proyek-card:hover {
-    transform: translateY(-10px); /* Efek melayang */
-    border-color: #ff4d6d; /* Border berubah pink saat dipilih */
-}
-
-.proyek-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover; /* Gambar tetap proporsional */
-}
-
-.proyek-info {
-    padding: 20px;
-}
-
-.proyek-info h3 {
-    color: #ff4d6d;
+.hero h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 3.5rem;
     margin-bottom: 10px;
 }
 
-.proyek-info p {
-    color: #aaa;
-    font-size: 0.9rem;
+/* Animasi Pixel Love & Cat */
+.hero::before {
+    content: "🎀"; /* Pita Coquette */
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
 
-/* --- MEDIA SOSIAL --- */
-.medsos-list {
+.floating-icons {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* 4. About Section */
+.about {
+    padding: 80px 15%;
+    text-align: center;
+    background-color: #FFF9C4; /* Kuning Lembut */
+    border-radius: 50px;
+    margin: 40px 20px;
+}
+
+/* 5. Proyek - Grid System */
+.proyek {
+    padding: 60px 10%;
+}
+
+.proyek h2 { text-align: center; margin-bottom: 40px; }
+
+.grid-proyek {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    border: 2px solid #FFD1DC;
+    border-radius: 20px;
+    padding: 20px;
+    transition: transform 0.3s;
+    text-align: center;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(255, 133, 161, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* Biar gambar tidak mencong */
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+/* 6. Medsos & Footer */
+.medsos {
+    padding: 40px;
     display: flex;
     justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.medsos-item {
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    transition: 0.3s;
-}
-
-.medsos-item img {
-    width: 50px;
-    display: block;
-    margin-bottom: 10px;
-    filter: grayscale(1); /* Membuat ikon medsos hitam putih */
-    transition: 0.3s;
-}
-
-.medsos-item:hover img {
-    filter: grayscale(0); /* Ikon berwarna kembali saat hover */
-    transform: scale(1.2);
-}
-
-.medsos-item:hover {
-    color: #ff4d6d;
-}
-
-/* --- FOOTER --- */
 footer {
-    padding: 50px;
+    background-color: #FFD1DC;
+    padding: 30px;
     text-align: center;
-    background-color: #000000;
-    border-top: 1px solid #333;
+    font-size: 0.9rem;
+    border-top: 2px dashed #FF85A1;
 }
 
-/* --- RESPONSIVE UNTUK LAYAR KECIL (HP) --- */
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column-reverse; /* Foto pindah ke atas teks di HP */
-        justify-content: center;
-        text-align: center;
-    }
-    
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
+/* Custom Cursor Pixel Love (Opsional) */
+body {
+    cursor: url('https://cur.cursors-4u.net/symbols/sym-9/sym833.cur'), auto;
+}
 
-    .hero-logo img {
-        width: 200px;
-        margin-bottom: 30px;
-    }
-
-    nav ul {
-        display: none; /* Menyembunyikan menu di layar sangat kecil (bisa dikembangkan dengan hamburger menu) */
-    }
+/* Elemen Dekoratif Kucing Imut (Gunakan Emoji atau Icon) */
+.cat-decor::after {
+    content: "🐾";
+    margin-left: 5px;
 }
