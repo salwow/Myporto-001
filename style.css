@@ -1,16 +1,158 @@
-/* --- MEDIA SOSIAL (Coquette Bubble Style) --- */
-.medsos {
-    background-color: #fff9ae; /* Latar kuning pastel lembut */
-    border-radius: 50px 50px 0 0; /* Memberikan efek lengkung di atas section */
+/* --- RESET & VARIABLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
 }
 
+:root {
+    --soft-pink: #FFD1DC;
+    --dark-pink: #FF85A1;
+    --pastel-yellow: #FFF9C4;
+    --cream: #FFF5F5;
+    --text-brown: #5D4037;
+}
+
+body {
+    background-color: var(--cream);
+    color: var(--text-brown);
+    overflow-x: hidden;
+}
+
+/* --- ANIMASI KUDA PONY (Floating Pony) --- */
+@keyframes ponyJump {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+/* Menambahkan maskot pony kecil di pojok layar */
+body::after {
+    content: '🦄';
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 40px;
+    animation: ponyJump 3s infinite ease-in-out;
+    z-index: 9999;
+}
+
+/* --- NAVIGASI --- */
+header {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px dotted var(--soft-pink);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--dark-pink);
+}
+
+.logo span { color: #FBC02D; } /* Kuning accent */
+
+nav ul { display: flex; list-style: none; }
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-brown);
+    font-weight: 500;
+    margin-left: 20px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover { color: var(--dark-pink); }
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+    background: radial-gradient(circle at top right, var(--pastel-yellow), var(--cream));
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    color: var(--dark-pink);
+    margin: 10px 0;
+    text-shadow: 2px 2px white;
+}
+
+.hero-logo img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover; /* Agar gambar tidak gepeng */
+    border-radius: 50%;
+    border: 8px solid white;
+    box-shadow: 0 10px 20px rgba(255, 133, 161, 0.3);
+}
+
+.btn-hero {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 30px;
+    background-color: var(--dark-pink);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-hero:hover { transform: scale(1.05); background-color: var(--soft-pink); }
+
+/* --- PROYEK GRID --- */
+.proyek-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 40px 0;
+}
+
+.proyek-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid var(--soft-pink);
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.proyek-card:hover { transform: translateY(-10px); border-color: #FBC02D; }
+
+.proyek-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.proyek-info { padding: 15px; text-align: center; }
+
+.proyek-info h3 { color: var(--dark-pink); }
+
+/* --- MEDSOS --- */
 .medsos-list {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 50px; /* Jarak antar ikon lebih lega */
+    gap: 30px;
     flex-wrap: wrap;
-    padding: 20px 0;
 }
 
 .medsos-item {
@@ -18,39 +160,36 @@
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: #5a4a42;
-    font-weight: 600;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: var(--text-brown);
 }
 
-/* Lingkaran pembungkus ikon */
 .medsos-item img {
-    width: 65px; /* Ukuran seragam */
-    height: 65px;
+    width: 50px;
+    height: 50px;
     background: white;
-    padding: 12px;
-    border-radius: 50%; /* Membuat ikon bulat */
-    border: 3px solid #ff85a1; /* Bingkai pink */
-    box-shadow: 0 8px 15px rgba(255, 133, 161, 0.2);
-    margin-bottom: 12px;
-    object-fit: contain;
+    padding: 10px;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    border: 2px solid var(--soft-pink);
     transition: 0.3s;
 }
 
-/* Efek saat kursor mendekat (Hover) */
-.medsos-item:hover {
-    color: #ff85a1;
-    transform: translateY(-10px); /* Melompat pelan */
-}
-
 .medsos-item:hover img {
-    background-color: #ffdae9; /* Berubah jadi pink muda saat hover */
-    transform: scale(1.1) rotate(8deg); /* Membesar dan sedikit miring lucu */
-    border-color: #ffb703; /* Border berubah jadi kuning emas */
+    transform: rotate(15deg) scale(1.1);
+    background-color: var(--pastel-yellow);
 }
 
-.medsos-item span {
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+/* --- FOOTER --- */
+footer {
+    padding: 30px;
+    text-align: center;
+    background-color: var(--soft-pink);
+    color: white;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+    .hero { flex-direction: column-reverse; text-align: center; justify-content: center; gap: 20px; }
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-logo img { width: 200px; height: 200px; }
 }
