@@ -1,235 +1,266 @@
-/* --- RESET & VARIABLES --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
-}
+/* --- 1. IMPORT FONT --- */
+/* Menggunakan font yang lebih imut dan dekoratif */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap');
 
-:root {
-    --soft-pink: #FFD1DC;
-    --dark-pink: #FF85A1;
-    --pastel-yellow: #FFF9C4;
-    --cream: #FFF5F5;
-    --text-brown: #5D4037;
-    --shadow: rgba(255, 133, 161, 0.2);
+/* --- 2. GLOBAL STYLES & CURSOR --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Menjaga ukuran elemen tetap konsisten */
+  /* Kursor pita pink favoritmu */
+  cursor: url('https://cur.cursors-4u.net/symbols/sym-1/sym49.cur'), auto;
 }
 
 body {
-    background-color: var(--cream);
-    color: var(--text-brown);
-    overflow-x: hidden;
-    line-height: 1.6; /* Menambah kenyamanan membaca */
+  font-family: 'Quicksand', sans-serif;
+  background-color: #ffffff;
+  color: #444;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  overflow-x: hidden; /* Mencegah layar geser ke samping */
 }
 
-/* --- ANIMASI KUDA PONY --- */
-@keyframes ponyJump {
-    0%, 100% { transform: translateY(0) rotate(0); }
-    50% { transform: translateY(-20px) rotate(10deg); }
-}
-
-body::after {
-    content: '🦄';
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    font-size: 45px;
-    animation: ponyJump 3s infinite ease-in-out;
-    z-index: 9999;
-    filter: drop-shadow(0 5px 10px var(--shadow));
-}
-
-/* --- NAVIGASI --- */
+/* --- 3. NAVIGASI (SLIM & CLEAN) --- */
 header {
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(5px); /* Efek kaca modern */
-    padding: 15px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 3px dotted var(--soft-pink);
+  background-color: rgba(255, 255, 255, 0.9); /* Efek transparan */
+  backdrop-filter: blur(5px); /* Efek blur di belakang nav */
+  padding: 15px 10%;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px dashed #ffb7c5; /* Detail jahitan baju (Coquette vibe) */
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--dark-pink);
-    letter-spacing: 1px;
+  font-family: 'Dancing Script', cursive; /* Logo pakai font dekoratif */
+  font-size: 28px;
+  color: #ff4d6d;
 }
 
-.logo span { color: #FBC02D; }
+.logo span {
+  color: #ffb7c5;
+}
 
-nav ul { display: flex; list-style: none; }
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 25px;
+}
 
 nav ul li a {
-    text-decoration: none;
-    color: var(--text-brown);
-    font-weight: 600;
-    margin-left: 25px;
-    transition: 0.3s;
+  text-decoration: none;
+  color: #555;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: 0.3s;
 }
 
-nav ul li a:hover { color: var(--dark-pink); }
+nav ul li a:hover {
+  color: #ff4d6d;
+  letter-spacing: 1px; /* Efek merenggang saat disentuh */
+}
 
-/* --- HERO SECTION --- */
+/* --- 4. HERO SECTION (PAS DI MATA) --- */
 .hero {
-    min-height: 100vh; /* Menggunakan min-height agar konten tidak terpotong di layar kecil */
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 100px 10% 50px; /* Padding top ditambah karena header fixed */
-    background: radial-gradient(circle at top right, var(--pastel-yellow), var(--cream));
+  height: 85vh; /* Tidak kepanjangan di layar laptop */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12%;
+  background: radial-gradient(circle, #fff5f6 0%, #ffffff 100%);
+  position: relative;
 }
 
-.hero-content { flex: 1; }
+/* Dekorasi Pita Melayang */
+.hero::before {
+  content: '🎀';
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  font-size: 40px;
+  animation: float 3s infinite ease-in-out;
+}
+
+/* Dekorasi Boneka Melayang */
+.hero::after {
+  content: '🦄';
+  position: absolute;
+  bottom: 15%;
+  right: 5%;
+  font-size: 40px;
+  animation: float 3s infinite ease-in-out 1.5s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-15px) rotate(10deg); }
+}
 
 .hero-content h1 {
-    font-size: 4.5rem;
-    color: var(--dark-pink);
-    margin-bottom: 15px;
-    text-shadow: 3px 3px white;
+  font-family: 'Dancing Script', cursive;
+  font-size: 4rem;
+  color: #ff4d6d;
 }
 
-.hero-logo {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
+/* Gambar Profil Hayfa: Ukuran Pas & Rapi */
 .hero-logo img {
-    width: 320px;
-    height: 320px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 10px solid white;
-    box-shadow: 0 15px 30px var(--shadow);
-    transition: 0.5s;
+  width: 280px; /* Ukuran dikunci agar tidak kede-gedean */
+  height: 280px;
+  object-fit: cover; /* Agar foto tidak gepeng */
+  border-radius: 50%;
+  border: 6px double #ffb7c5; /* Border ganda agar estetik */
+  box-shadow: 0 10px 20px rgba(255, 182, 193, 0.4);
 }
 
-.hero-logo img:hover { transform: scale(1.03); }
-
-/* --- SECTION GENERAL --- */
-section {
-    padding: 80px 10%;
-    max-width: 1200px;
-    margin: 0 auto;
+.btn-hero {
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: #ff4d6d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: 0.3s;
+  box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
 }
 
-h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    color: var(--dark-pink);
-    margin-bottom: 40px;
-    position: relative;
+/* --- 5. ABOUT SECTION --- */
+.about {
+  padding: 80px 15%;
+  text-align: center;
 }
 
-h2::after { /* Hiasan garis bawah judul */
-    content: '✿';
-    display: block;
-    font-size: 1rem;
-    color: var(--soft-pink);
+.about h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  color: #ff4d6d;
 }
 
-/* --- PROYEK GRID --- */
+/* --- 6. PROYEK SECTION (GRID RAPI) --- */
+.proyek {
+  background-color: #fffcfd;
+}
+
 .proyek-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+  display: grid;
+  /* Mengatur kartu sejajar 3 di laptop, otomatis turun di HP */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .proyek-card {
-    background: white;
-    border-radius: 25px;
-    overflow: hidden;
-    border: 2px solid var(--soft-pink);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    text-decoration: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  background: #fff;
+  border-radius: 25px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  border: 2px solid #fff0f3;
+  transition: 0.4s ease;
+  position: relative;
 }
 
-.proyek-card:hover { 
-    transform: translateY(-12px); 
-    border-color: #FBC02D;
-    box-shadow: 0 15px 30px var(--shadow);
+/* Pita kecil di pojok kartu */
+.proyek-card::after {
+  content: '🦄';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  opacity: 0;
+  transition: 0.3s;
 }
 
+.proyek-card:hover {
+  transform: translateY(-10px);
+  border-color: #ffb7c5;
+  box-shadow: 0 15px 30px rgba(255, 182, 193, 0.2);
+}
+
+.proyek-card:hover::after {
+  opacity: 1;
+}
+
+/* Mencegah gambar proyek kede-gedean */
 .proyek-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 2px solid var(--soft-pink);
+  width: 100%;
+  height: 180px; /* Tinggi seragam agar rapi */
+  object-fit: cover;
 }
 
-.proyek-info { padding: 20px; text-align: center; }
+.proyek-info {
+  padding: 20px;
+  text-align: center;
+}
 
-.proyek-info h3 { color: var(--dark-pink); margin-bottom: 8px; }
+.proyek-info h3 {
+  color: #ff4d6d;
+  font-size: 1.2rem;
+}
 
-.proyek-info p { font-size: 0.9rem; color: #888; }
-
-/* --- MEDSOS --- */
+/* --- 7. MEDSOS SECTION --- */
 .medsos-list {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 
 .medsos-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: var(--text-brown);
-    font-weight: bold;
+  background: white;
+  padding: 15px 25px;
+  border-radius: 50px;
+  border: 2px solid #fff0f3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #555;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.medsos-item:hover {
+  background: #fff0f3;
+  border-color: #ff4d6d;
+  color: #ff4d6d;
 }
 
 .medsos-item img {
-    width: 70px;
-    height: 70px;
-    background: white;
-    padding: 15px;
-    border-radius: 22px;
-    margin-bottom: 10px;
-    border: 3px solid var(--soft-pink);
-    transition: 0.4s;
-    box-shadow: 0 5px 10px var(--shadow);
+  width: 25px; /* Icon medsos kecil & rapi */
+  height: 25px;
 }
 
-.medsos-item:hover img {
-    transform: rotate(-10deg) scale(1.15);
-    background-color: var(--pastel-yellow);
-    border-color: #FBC02D;
-}
-
-/* --- FOOTER --- */
+/* --- 8. FOOTER --- */
 footer {
-    padding: 40px;
-    text-align: center;
-    background-color: var(--soft-pink);
-    color: white;
-    font-weight: bold;
-    letter-spacing: 1px;
+  text-align: center;
+  padding: 40px;
+  background-color: #ffb7c5; /* Pink lembut */
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
-/* --- MOBILE RESPONSIVE --- */
+/* --- LAYAR HP --- */
 @media (max-width: 768px) {
-    .hero { 
-        flex-direction: column-reverse; 
-        text-align: center; 
-        padding-top: 120px;
-    }
-    .hero-content h1 { font-size: 3rem; }
-    .hero-logo img { width: 220px; height: 220px; }
-    nav ul { display: none; } /* Idealnya menggunakan hamburger menu */
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding-top: 120px;
+  }
+  .hero-logo img {
+    width: 200px;
+    height: 200px;
+  }
 }
