@@ -1,111 +1,169 @@
-/* 1. Reset & Global - Ukuran Font Diperkecil */
+/* --- RESET & DASAR --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', cursive, sans-serif; /* Vibes lebih lembut */
+    scroll-behavior: smooth;
+}
+
+:root {
+    --soft-pink: #ffdae9;
+    --dark-pink: #ff85a1;
+    --pastel-yellow: #fff9ae;
+    --text-color: #5a4a42; /* Cokelat tua lembut agar tidak kaku */
+    --white: #ffffff;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #FFFBFA;
-    color: #FF85A1;
-    font-size: 14px; /* Ukuran dasar lebih kecil agar rapi */
+    background-color: #fff5f8; /* Background pink sangat muda */
+    color: var(--text-color);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* 2. Navigasi - Ramping (Compact) */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 10%; /* Padding dikecilkan */
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(5px);
+/* --- ANIMASI KUDA PONI LUCU (Floating Pony) --- */
+@keyframes floatPony {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.hero::after {
+    content: '🦄'; /* Emoji kuda poni sebagai maskot */
+    font-size: 50px;
+    position: absolute;
+    right: 15%;
+    bottom: 10%;
+    animation: floatPony 3s ease-in-out infinite;
+}
+
+/* --- NAVIGASI --- */
+header {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid #FFD1DC;
+    border-bottom: 3px dotted var(--dark-pink); /* Aksen dotted agar lucu */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .logo {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #FF85A1;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--dark-pink);
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #ffb703; /* Warna kuning emas */
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    gap: 15px;
 }
+
+nav ul li { margin-left: 20px; }
 
 nav ul li a {
     text-decoration: none;
-    color: #FF85A1;
-    font-size: 0.9rem;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: 0.3s;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+nav ul li a:hover {
+    background-color: var(--soft-pink);
+    color: var(--dark-pink);
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 10%;
+    background: linear-gradient(135deg, #fff5f8 0%, var(--pastel-yellow) 100%);
+    position: relative;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: var(--dark-pink);
+    text-shadow: 2px 2px var(--white);
+}
+
+.hero-logo img {
+    width: 280px; /* Ukuran pas agar tidak kebesaran */
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%; /* Bulat sempurna ala Coquette */
+    border: 8px solid var(--white);
+    box-shadow: 0 10px 20px rgba(255, 133, 161, 0.2);
+}
+
+.btn-hero {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 35px;
+    background-color: var(--dark-pink);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(255, 133, 161, 0.4);
+    transition: 0.3s transform;
+}
+
+.btn-hero:hover {
+    transform: scale(1.05) rotate(-2deg);
+    background-color: #ff4d6d;
+}
+
+/* --- SECTION GENERAL --- */
+section { padding: 80px 10%; }
+
+h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    color: var(--dark-pink);
+}
+
+/* --- PROYEK GRID (Modern & Rapi) --- */
+.proyek-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.proyek-card {
+    background: var(--white);
+    text-decoration: none;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid var(--soft-pink);
     transition: 0.3s;
 }
 
-/* 3. Hero Section - Tidak Terlalu Tinggi */
-.hero {
-    height: 60vh; /* Dikurangi dari 80vh agar tidak memakan satu layar penuh */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #FFF9C4 0%, #FFD1DC 100%);
-    padding-top: 50px;
+.proyek-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(255, 133, 161, 0.15);
 }
 
-.hero h1 {
-    font-size: 2.2rem; /* Ukuran font judul lebih proporsional */
-    margin-bottom: 5px;
-}
-
-/* Animasi Kecil Kucing & Love */
-.pixel-decor {
-    font-size: 1.2rem;
-    animation: bounce 2s infinite;
-    display: inline-block;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-}
-
-/* 4. About & Section General - Padding Lebih Efisien */
-section {
-    max-width: 900px; /* Membatasi lebar konten agar tidak melebar di layar besar */
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-/* 5. Proyek - Grid yang Rapi */
-.grid-proyek {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ukuran card lebih kecil */
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.card {
-    background: #fff;
-    border: 1.5px solid #FFD1DC;
-    border-radius: 12px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 4px 4px 0px #FFF9C4; /* Shadow kaku khas retro/pixel */
-}
-
-.card img {
+.proyek-card img {
     width: 100%;
-    height: 120px; /* Tinggi gambar dibatasi agar tidak "makan tempat" */
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-/* 6. Medsos & Footer - Kecil & Manis */
-.medsos {
-    text-align: center;
