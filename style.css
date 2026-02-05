@@ -1,6 +1,4 @@
-/* 1. Setup Dasar & Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Quicksand:wght@500;700&display=swap');
-
+/* 1. Reset & Global - Ukuran Font Diperkecil */
 * {
     margin: 0;
     padding: 0;
@@ -11,150 +9,103 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #FFFBFA;
     color: #FF85A1;
-    overflow-x: hidden;
+    font-size: 14px; /* Ukuran dasar lebih kecil agar rapi */
+    line-height: 1.6;
 }
 
-/* 2. Navigasi - Elegan & Clean */
+/* 2. Navigasi - Ramping (Compact) */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 10%;
-    background: rgba(255, 209, 220, 0.5);
-    backdrop-filter: blur(10px);
-    position: sticky;
+    padding: 10px 10%; /* Padding dikecilkan */
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    position: fixed;
+    width: 100%;
     top: 0;
     z-index: 1000;
-    border-bottom: 2px dashed #FF85A1;
+    border-bottom: 1px solid #FFD1DC;
 }
 
-nav .logo {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 1.5rem;
-    font-weight: bold;
+.logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #FF85A1;
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 15px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #FF85A1;
-    font-weight: 500;
+    font-size: 0.9rem;
     transition: 0.3s;
 }
 
-nav ul li a:hover {
-    color: #fdd835; /* Kuning */
-}
-
-/* 3. Hero Section - Vibes Coquette */
+/* 3. Hero Section - Tidak Terlalu Tinggi */
 .hero {
-    height: 80vh;
+    height: 60vh; /* Dikurangi dari 80vh agar tidak memakan satu layar penuh */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    background: linear-gradient(180deg, #FFD1DC 0%, #FFFBFA 100%);
-    position: relative;
+    background: linear-gradient(135deg, #FFF9C4 0%, #FFD1DC 100%);
+    padding-top: 50px;
 }
 
 .hero h1 {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 3.5rem;
-    margin-bottom: 10px;
+    font-size: 2.2rem; /* Ukuran font judul lebih proporsional */
+    margin-bottom: 5px;
 }
 
-/* Animasi Pixel Love & Cat */
-.hero::before {
-    content: "🎀"; /* Pita Coquette */
-    font-size: 2rem;
-    margin-bottom: 10px;
+/* Animasi Kecil Kucing & Love */
+.pixel-decor {
+    font-size: 1.2rem;
+    animation: bounce 2s infinite;
+    display: inline-block;
 }
 
-.floating-icons {
-    position: absolute;
-    font-size: 2rem;
-    animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
+@keyframes bounce {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    50% { transform: translateY(-8px); }
 }
 
-/* 4. About Section */
-.about {
-    padding: 80px 15%;
-    text-align: center;
-    background-color: #FFF9C4; /* Kuning Lembut */
-    border-radius: 50px;
-    margin: 40px 20px;
+/* 4. About & Section General - Padding Lebih Efisien */
+section {
+    max-width: 900px; /* Membatasi lebar konten agar tidak melebar di layar besar */
+    margin: 0 auto;
+    padding: 40px 20px;
 }
 
-/* 5. Proyek - Grid System */
-.proyek {
-    padding: 60px 10%;
-}
-
-.proyek h2 { text-align: center; margin-bottom: 40px; }
-
+/* 5. Proyek - Grid yang Rapi */
 .grid-proyek {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ukuran card lebih kecil */
+    gap: 20px;
+    margin-top: 20px;
 }
 
 .card {
-    background: white;
-    border: 2px solid #FFD1DC;
-    border-radius: 20px;
-    padding: 20px;
-    transition: transform 0.3s;
+    background: #fff;
+    border: 1.5px solid #FFD1DC;
+    border-radius: 12px;
+    padding: 15px;
     text-align: center;
-    position: relative;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(255, 133, 161, 0.2);
+    box-shadow: 4px 4px 0px #FFF9C4; /* Shadow kaku khas retro/pixel */
 }
 
 .card img {
     width: 100%;
-    height: 180px;
-    object-fit: cover; /* Biar gambar tidak mencong */
-    border-radius: 15px;
-    margin-bottom: 15px;
+    height: 120px; /* Tinggi gambar dibatasi agar tidak "makan tempat" */
+    object-fit: cover;
+    border-radius: 8px;
 }
 
-/* 6. Medsos & Footer */
+/* 6. Medsos & Footer - Kecil & Manis */
 .medsos {
-    padding: 40px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-footer {
-    background-color: #FFD1DC;
-    padding: 30px;
     text-align: center;
-    font-size: 0.9rem;
-    border-top: 2px dashed #FF85A1;
-}
-
-/* Custom Cursor Pixel Love (Opsional) */
-body {
-    cursor: url('https://cur.cursors-4u.net/symbols/sym-9/sym833.cur'), auto;
-}
-
-/* Elemen Dekoratif Kucing Imut (Gunakan Emoji atau Icon) */
-.cat-decor::after {
-    content: "🐾";
-    margin-left: 5px;
-}
