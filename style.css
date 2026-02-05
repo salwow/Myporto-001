@@ -1,0 +1,116 @@
+/* --- RESET & GLOBAL STYLES --- */
+* {
+    margin: 0; /* Menghapus margin bawaan browser */
+    padding: 0; /* Menghapus padding bawaan browser */
+    box-sizing: border-box; /* Memastikan padding tidak menambah lebar elemen */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font modern yang bersih */
+}
+
+body {
+    background-color: #f8f9fa; /* Warna latar belakang abu-abu sangat muda */
+    color: #333; /* Warna teks utama agar mudah dibaca */
+    line-height: 1.6; /* Memberikan ruang antar baris teks */
+}
+
+/* --- NAVIGASI --- */
+nav {
+    background-color: #ffffff; /* Latar belakang navigasi putih bersih */
+    display: flex; /* Mengaktifkan mode flexbox */
+    justify-content: space-between; /* Memisahkan logo/nama dan menu ke ujung kiri & kanan */
+    align-items: center; /* Menyejajarkan menu secara vertikal di tengah */
+    padding: 20px 10%; /* Memberikan ruang di dalam navigasi */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Memberikan efek bayangan halus di bawah nav */
+    position: sticky; /* Membuat navigasi tetap di atas saat di-scroll */
+    top: 0;
+    z-index: 1000; /* Memastikan navigasi selalu di atas elemen lain */
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff4d6d; /* Warna Merah Muda untuk logo */
+}
+
+nav ul {
+    display: flex;
+    list-style: none; /* Menghilangkan titik (bullet) pada daftar menu */
+}
+
+nav ul li {
+    margin-left: 30px; /* Memberikan jarak antar menu */
+}
+
+nav ul li a {
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    color: #0077b6; /* Warna Biru untuk teks menu */
+    font-weight: 500;
+    transition: 0.3s; /* Efek transisi saat di-hover */
+}
+
+nav ul li a:hover {
+    color: #ff4d6d; /* Berubah jadi merah muda saat disentuh kursor */
+}
+
+/* --- HERO SECTION (BERANDA) --- */
+.hero {
+    height: 80vh; /* Tinggi hero 80% dari tinggi layar */
+    background: linear-gradient(135deg, #ff4d6d, #0077b6); /* Gradasi Merah Muda ke Biru */
+    color: white;
+    display: flex;
+    flex-direction: column; /* Menyusun konten secara vertikal */
+    justify-content: center; /* Memposisikan konten di tengah secara vertikal */
+    align-items: center; /* Memposisikan konten di tengah secara horizontal */
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* --- SECTION GENERAL --- */
+section {
+    padding: 80px 10%; /* Jarak antar bagian agar tidak sesak */
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #0077b6; /* Warna Biru untuk judul section */
+    position: relative;
+}
+
+/* Garis bawah di setiap judul section */
+section h2::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: #ff4d6d;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* --- KARTU (ANGGOTA & MAKALAH) --- */
+.container {
+    display: flex; /* Menggunakan flexbox untuk menyejajarkan kartu */
+    flex-wrap: wrap; /* Jika layar sempit, kartu akan pindah ke bawah */
+    justify-content: center; /* Kartu berada di tengah */
+    gap: 20px; /* Jarak antar kartu */
+}
+
+.card {
+    background: white;
+    width: 300px; /* Lebar tetap untuk setiap kartu */
+    padding: 20px;
+    border-radius: 15px; /* Sudut melengkung agar terlihat modern */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Bayangan lembut */
+    text-align: center;
+    transition: transform 0.3s; /* Efek gerak saat kartu disentuh */
+    border-bottom: 5px solid #0077b6; /* Garis bawah biru pada kartu */
+}
+
+.card:hover {
+    transform: translateY(-1
