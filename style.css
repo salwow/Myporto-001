@@ -216,6 +216,7 @@ h2 {
 footer {
     background-color: var(--pink-soft);
     padding: 20px;
+    text-align: center; /* Tambahkan ini agar teks berada di tengah */
     color: white;
     font-weight: bold;
     border-top-left-radius: 50% 20px;
@@ -224,7 +225,18 @@ footer {
 
 /* Responsif Mobile */
 @media (max-width: 768px) {
-    .hero { flex-direction: column-reverse; text-align: center; height: auto; padding-bottom: 50px; }
-    .hero-logo img { width: 200px; height: 200px; }
-    nav ul { display: none; } /* Untuk simple, kita sembunyikan menu di mobile */
+    .hero { 
+        flex-direction: column-reverse; 
+        text-align: center; 
+        height: auto; 
+        padding-bottom: 50px; 
+    }
+    .hero-logo img { 
+        width: 200px; 
+        height: 200px; 
+    }
+    nav ul { 
+        display: none; 
+    } 
 }
+/* Hapus kurung kurawal tambahan yang ada di baris paling bawah tadi */
